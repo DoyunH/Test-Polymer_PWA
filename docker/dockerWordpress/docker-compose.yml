@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  wordpress:
+    depends_on:
+      - db
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        # Available [trace|debug|profile]. Use Comma separated available values for multiple mode
+        # Use "off" to disable xdebug
+        #- XDEBUG_MODES=debug,trace
+        - XDEBUG_MODES=debug
+        # Set the following values to overwrite the existing settings.
+        # Uncomment the following line and change value.
+        - REMOTE_HOST=host.docker.internal # Host machine IP
+        - REMOTE_PORT=9003 # IDE/Editor's listener port
+        - IDE_KEY=docker # IDE's filter/listener key
+    container_name: wordpress_docker
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./settings/php/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - "8000:80"
+
+
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
