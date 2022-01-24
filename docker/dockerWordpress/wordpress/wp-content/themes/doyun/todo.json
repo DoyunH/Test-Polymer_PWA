@@ -1,8 +1,8 @@
 {
-  "TODO item 1": {
-    "completed": true
-  },
-  "TODO item 2": {
-    "completed": true
-  }
+    "task 1": {
+        "completed": false
+    },
+    "task 2": {
+        "completed": false
+    }
 }
