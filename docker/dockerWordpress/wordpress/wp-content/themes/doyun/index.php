@@ -15,7 +15,7 @@
      <title>Document</title>
  </head>
  <body>
-     <form action="newtodo.php" method="post">
+     <form action="wp-content/themes/doyun/newtodo.php" method="post">
          <input type="text" name="todo_name" placeholder='Enter your todo'>
          <button>New Todo</button>
      </form>
