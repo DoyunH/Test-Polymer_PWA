@@ -1,0 +1,7 @@
+{
+  "name": "PWA_polymer",
+  "short_name": "PWA_polymer",
+  "description": "Alpicacion de prueba con Polymer",
+  "start_url": "/",
+  "display": "standalone"
+}
