@@ -9,6 +9,7 @@ import "@polymer/iron-ajax/iron-ajax";
 class Pwa_polymerApp extends PolymerElement {
   handleResponse(event, request) {
     console.log(request.response);
+    this.data = request.response;
   }
 
   static get template() {
@@ -17,9 +18,17 @@ class Pwa_polymerApp extends PolymerElement {
         :host {
           display: block;
         }
+        header {
+          font-family: sans-serif;
+          background-color: #0b3d91;
+          color: #fff;
+          text-align: center;
+          height: 40px;
+          line-height: 40px;
+        }
       </style>
-      <h2>Hello [[prop1]]!</h2>
-      <card-element></card-element>
+      <header>NASA: foto del dia</header>
+      <card-element data="[[data]]"></card-element>
 
       <iron-ajax
         auto
@@ -32,14 +41,6 @@ class Pwa_polymerApp extends PolymerElement {
       >
       </iron-ajax>
     `;
-  }
-  static get properties() {
-    return {
-      prop1: {
-        type: String,
-        value: "PWA_polymer-app",
-      },
-    };
   }
 }
 
