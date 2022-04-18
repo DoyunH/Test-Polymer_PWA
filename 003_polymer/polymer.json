@@ -1,8 +1,19 @@
 {
   "npm": true,
   "lint": {
-    "rules": [
-      "polymer-3"
-    ]
-  }
+    "rules": ["polymer-3"]
+  },
+  "entrypoint": "index.html",
+  "shell": "src/Pwa_polymer-app/Pwa_polymer-app.js",
+  "extraDependencies": ["manifest.json", "node_modules/@webcomponentjs/*.*"],
+  "sources": ["assets/*.*", "src/**/*.*"],
+  "builds": [
+    {
+      "name": "es6prod",
+      "preset": "es6-bundled",
+      "addPushManifest": true,
+      "addServiceWorker": true,
+      "swPrecacheConfig": "sw-precache-config.js"
+    }
+  ]
 }

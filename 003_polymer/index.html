@@ -27,6 +27,15 @@
         padding: 0;
       }
     </style>
+    <script>
+      // Feature detect for service worker capability in the browser
+      if ("serviceWorker" in navigator) {
+        // Delay registering until page load
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("service-worker.js");
+        });
+      }
+    </script>
   </head>
   <body>
     <noscript>NO puedes ver los contenidos sin activar JavaScript</noscript>

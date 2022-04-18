@@ -9,10 +9,11 @@ class CardElement extends PolymerElement {
     super();
 
     this.data = {
-      title: "Mi primer componente",
+      title: "no hay datos: intenta conectarte a una red",
       explanation: "",
-      url: "",
+      url: "../assets/estrellas/png",
     };
+    console.log(this.data.url);
   }
   static get template() {
     return html`
