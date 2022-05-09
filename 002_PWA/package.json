@@ -10,6 +10,7 @@
   "author": "Doyun",
   "license": "ISC",
   "dependencies": {
+    "aws-cloudfront-sign": "^2.2.0",
     "aws-sdk": "^2.1122.0",
     "body-parser": "^1.20.0",
     "mongodb": "^4.5.0",

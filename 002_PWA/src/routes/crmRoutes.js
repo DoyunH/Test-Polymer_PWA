@@ -4,6 +4,9 @@ import {
   getContactID,
   updateContact,
   deleteContact,
+  getVideo,
+  addNewVideo,
+  deleteVideo,
 } from "../controllers/crmController";
 
 const routes = (app) => {
@@ -29,6 +32,18 @@ const routes = (app) => {
 
     // deleting a specific contact
     .delete(deleteContact);
+
+  app
+    .route("/video")
+
+    .get(getVideo)
+
+    .post(addNewVideo);
+
+  app
+    .route("/video/:videoID")
+
+    .delete(deleteVideo);
 };
 
 export default routes;

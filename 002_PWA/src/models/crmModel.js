@@ -25,3 +25,10 @@ export const ContactSchema = new Schema({
     default: Date.now,
   },
 });
+
+export const VideoSchema = new Schema({
+  url: {
+    type: String,
+    required: "Enter a video URL",
+  },
+});
