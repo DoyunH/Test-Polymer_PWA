@@ -1,9 +1,11 @@
 import express from "express";
+import cors from "cors";
 import routes from "./src/routes/crmRoutes";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
 const app = express();
+app.use(cors());
 const PORT = 4000;
 
 // mongoose connection

@@ -81,8 +81,10 @@ export const getVideo = (req, res) => {
       "https://d8wp69ritpb1o.cloudfront.net/test_video.mp4",
       options
     );
-    console.log("Signed URL: " + signedUrl);
-    res.json(signedUrl);
+
+    video[0].url = signedUrl;
+    console.log(video[0].url);
+    res.json(video);
   });
 };
 
