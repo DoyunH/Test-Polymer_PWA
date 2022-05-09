@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import routes from "./src/routes/crmRoutes";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
 const app = express();
-app.use(cors());
 const PORT = 4000;
 
 // mongoose connection
@@ -18,6 +18,8 @@ mongoose.connect("mongodb://localhost/:CRMdb", {
 // bodyParser setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
+app.use(cookieParser());
 
 routes(app);
 

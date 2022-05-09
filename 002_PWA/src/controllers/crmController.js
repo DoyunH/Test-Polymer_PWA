@@ -81,9 +81,14 @@ export const getVideo = (req, res) => {
       "https://d8wp69ritpb1o.cloudfront.net/test_video.mp4",
       options
     );
-
+    // const signedCookies = cloudfrontSign.getSignedCookies(
+    //   "https://d8wp69ritpb1o.cloudfront.net/test_video.mp4",
+    //   options
+    // );
+    // for (var cookieId in signedCookies) {
+    //   res.cookie(cookieId, signedCookies[cookieId]);
+    // }
     video[0].url = signedUrl;
-    console.log(video[0].url);
     res.json(video);
   });
 };
